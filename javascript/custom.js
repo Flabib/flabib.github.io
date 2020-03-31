@@ -3,6 +3,25 @@
 
     jQuery(document).ready(function () {
 
+        /***Convert HTML to PDF***/
+        $('#downloadCV').on('click', function() {
+            var doc = new jsPDF();          
+            var elementHandler = {
+                '#ignorePDF': function (element, renderer) {
+                    return true;
+                }
+            };
+            var source = window.document.getElementsByTagName("body")[0];
+            doc.fromHTML(
+                source, 15, 15,
+                {
+                'width': 180,'elementHandlers': elementHandler
+                }
+            );
+
+            doc.output("dataurlnewwindow");
+        });
+
         /***MENU TOGGLE ANIMATION***/
         $('.toggle-normal').on('click', function() {
                 $('.top-bar').toggleClass('top-transform');
@@ -156,7 +175,7 @@
         function init() {
             var mapOptions = {
                 zoom: 17,
-                center: new google.maps.LatLng(51.5287352, -0.3817831),
+                center: new google.maps.LatLng(-6.7928363, 108.661669),
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 scrollwheel: false,
                 disableDefaultUI: false

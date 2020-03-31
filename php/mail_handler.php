@@ -2,7 +2,7 @@
 
 /* Configuration */
 /*your web-mail*/
-$mailto  = 'your webmail here';
+$mailto  = 'fahdilabib@akatekno.id';
 
 
 $name     	= strip_tags($_POST['first_name']);
@@ -37,7 +37,7 @@ $message = "<html><body>$body</body></html>";
 if(empty($name) || empty($sub) || empty($email) || empty($comments) ){
 
     echo "Fill The Form Properly"; // message
-    header("Location: http://home-page-link"); //go to home page
+    header("Location: http://fahdilabib.akatekno.id"); //go to home page
     die();
     
 }
